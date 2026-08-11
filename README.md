@@ -87,6 +87,15 @@ cargo check -p favicon_kit_core --target wasm32-unknown-unknown --locked
 cargo check -p favicon_kit_web --target wasm32-unknown-unknown --locked
 ```
 
+Browser smoke tests require Node.js 24:
+
+```bash
+cd crates/favicon_kit_web
+npm ci
+npx playwright install chromium
+npm run test:wasm-smoke:local
+```
+
 ## Documentation
 
 - [Product specification](docs/product_spec.md)

@@ -6,6 +6,9 @@
 /release-source/
 /release-candidate/
 .DS_Store
+crates/favicon_kit_web/node_modules/
+crates/favicon_kit_web/playwright-report/
+crates/favicon_kit_web/test-results/
 
 # wasm-pack output copied beside the static editor for local serving and Pages.
 crates/favicon_kit_web/pkg/

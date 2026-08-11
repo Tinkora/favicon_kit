@@ -58,6 +58,15 @@ cp crates/favicon_kit_web/pkg/* crates/favicon_kit_web/static/pkg/
 python3 -m http.server --directory crates/favicon_kit_web/static 8080
 ```
 
+Run the browser smoke with Node.js 24:
+
+```bash
+cd crates/favicon_kit_web
+npm ci
+npx playwright install chromium
+npm run test:wasm-smoke:local
+```
+
 ## Design Principles
 
 1. **Browser-first**: Image processing and package generation run in Rust/WASM after browser decoding

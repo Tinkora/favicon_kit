@@ -71,6 +71,15 @@ cargo check -p favicon_kit_core --target wasm32-unknown-unknown --locked
 cargo check -p favicon_kit_web --target wasm32-unknown-unknown --locked
 ```
 
+浏览器 smoke 测试需要 Node.js 24：
+
+```bash
+cd crates/favicon_kit_web
+npm ci
+npx playwright install chromium
+npm run test:wasm-smoke:local
+```
+
 ## 文档
 
 - [产品规格](docs/product_spec.zh-CN.md)
