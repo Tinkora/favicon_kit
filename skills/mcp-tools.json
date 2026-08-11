@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": 1,
+  "name": "tinkora-favicon-kit-draft",
+  "status": "non-runnable-draft",
+  "runnable": false,
+  "transport": null,
+  "description": "Documentation-only schemas. This repository does not implement or expose a runnable MCP server.",
+  "version": "0.1.0",
+  "tools": [
+    {
+      "name": "generate_favicons",
+      "description": "Proposed future contract for a favicon generator. It is not callable from this repository.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "image_data": {
+            "type": "string",
+            "description": "Base64-encoded image data (PNG, JPEG, WebP supported)."
+          },
+          "background_color": {
+            "type": "string",
+            "default": "#00000000",
+            "description": "Hex color for padding/background fill, e.g. '#ffffff' or '#00000000'."
+          },
+          "padding_percent": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 50,
+            "default": 0,
+            "description": "Percentage of padding on each side of the image (0-50)."
+          },
+          "app_name": {
+            "type": "string",
+            "default": "My App",
+            "description": "Application name for site.webmanifest."
+          },
+          "app_short_name": {
+            "type": "string",
+            "default": "App",
+            "description": "Short application name for site.webmanifest."
+          },
+          "theme_color": {
+            "type": "string",
+            "default": "#ffffff",
+            "description": "Theme color hex for manifest and HTML meta tags."
+          }
+        },
+        "required": ["image_data"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "generate_favicon_zip",
+      "description": "Proposed future contract for a favicon ZIP generator. It is not callable from this repository.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "image_data": {
+            "type": "string",
+            "description": "Base64-encoded image data."
+          },
+          "background_color": {
+            "type": "string",
+            "default": "#00000000"
+          },
+          "padding_percent": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 50,
+            "default": 0
+          },
+          "app_name": {
+            "type": "string",
+            "default": "My App"
+          },
+          "app_short_name": {
+            "type": "string",
+            "default": "App"
+          },
+          "theme_color": {
+            "type": "string",
+            "default": "#ffffff"
+          }
+        },
+        "required": ["image_data"],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

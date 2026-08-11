@@ -1,0 +1,21 @@
+[package]
+name = "favicon_kit_web"
+version = "0.1.0"
+description = "WebAssembly bindings for Tinkora Favicon Kit."
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+exclude = ["pkg/**", "static/pkg/**"]
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+favicon_kit_core = { version = "0.1.0", path = "../favicon_kit_core" }
+wasm-bindgen.workspace = true
+js-sys.workspace = true
+console_error_panic_hook.workspace = true

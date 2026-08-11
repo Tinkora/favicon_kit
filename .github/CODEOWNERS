@@ -1,0 +1,9 @@
+# Default ownership
+* @tinkeragora
+
+# Security and automation boundaries
+/.github/ @tinkeragora
+/scripts/ @tinkeragora
+/crates/favicon_kit_core/ @tinkeragora
+/crates/favicon_kit_web/src/ @tinkeragora
+/SECURITY.md @tinkeragora

@@ -1,0 +1,18 @@
+[package]
+name = "favicon_kit_core"
+version = "0.1.0"
+description = "Favicon asset generation primitives for Tinkora Favicon Kit."
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+image.workspace = true
+zip.workspace = true
+
+[dev-dependencies]
+quick-xml = "0.41"

@@ -1,0 +1,20 @@
+name: Supply chain
+
+'on':
+  pull_request:
+  schedule:
+    - cron: '17 4 * * 1'
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    permissions:
+      contents: read
+    uses: Tinkora/.github/.github/workflows/reusable-supply-chain.yml@21145ce218263e3b30359bab0c748da4702f801b # Tinkora workflow bundle
+    with:
+      working-directory: .
+      toolchain: 1.95.0
