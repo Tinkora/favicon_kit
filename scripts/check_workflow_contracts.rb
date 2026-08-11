@@ -102,6 +102,8 @@ unless wasm_inputs["working-directory"] == "crates/favicon_kit_web"
 end
 errors << ".github/workflows/quality.yml must set WASM toolchain to #{RUST_VERSION}" unless wasm_inputs["toolchain"] == RUST_VERSION
 errors << ".github/workflows/quality.yml must enable locked WASM builds" unless wasm_inputs["locked"] == true
+errors << ".github/workflows/quality.yml must enable Playwright smoke" unless wasm_inputs["playwright-smoke"] == true
+errors << ".github/workflows/quality.yml must use Node 24 for Playwright smoke" unless wasm_inputs["node-version"] == "24"
 
 supply_inputs = workflows.dig(".github/workflows/supply-chain.yml", "jobs", "audit", "with") || {}
 unless supply_inputs["toolchain"] == RUST_VERSION

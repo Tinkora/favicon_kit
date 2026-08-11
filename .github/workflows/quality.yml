@@ -22,6 +22,8 @@ jobs:
       working-directory: crates/favicon_kit_web
       toolchain: 1.95.0
       locked: true
+      playwright-smoke: true
+      node-version: '24'
 
   package-contents:
     name: Cargo package contents

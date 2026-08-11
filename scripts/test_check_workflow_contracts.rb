@@ -47,16 +47,25 @@ class CheckWorkflowContractsTest < Minitest::Test
     end
   end
 
+  def test_rejects_a_disabled_playwright_smoke_check
+    with_fixture(playwright_smoke: false) do |root|
+      result = run_checker(root)
+
+      refute result[:status].success?
+      assert_includes result[:output], "must enable Playwright smoke"
+    end
+  end
+
   private
 
-  def with_fixture(reference: COMMIT, msrv: "1.95.0", pages_path: "crates/favicon_kit_web/static")
+  def with_fixture(reference: COMMIT, msrv: "1.95.0", pages_path: "crates/favicon_kit_web/static", playwright_smoke: true)
     Dir.mktmpdir("workflow-contracts-") do |root|
-      write_workflows(root, reference, msrv, pages_path)
+      write_workflows(root, reference, msrv, pages_path, playwright_smoke)
       yield root
     end
   end
 
-  def write_workflows(root, reference, msrv, pages_path)
+  def write_workflows(root, reference, msrv, pages_path, playwright_smoke)
     write_yaml(root, ".github/workflows/quality.yml", {
       "jobs" => {
         "rust" => {
@@ -65,7 +74,13 @@ class CheckWorkflowContractsTest < Minitest::Test
         },
         "wasm" => {
           "uses" => "Tinkora/.github/.github/workflows/reusable-wasm-quality.yml@#{reference}",
-          "with" => { "working-directory" => "crates/favicon_kit_web", "toolchain" => "1.95.0", "locked" => true }
+          "with" => {
+            "working-directory" => "crates/favicon_kit_web",
+            "toolchain" => "1.95.0",
+            "locked" => true,
+            "playwright-smoke" => playwright_smoke,
+            "node-version" => "24"
+          }
         }
       }
     })
