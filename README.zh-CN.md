@@ -5,6 +5,8 @@ Favicon Kit v0.1.0 是一个在浏览器本地运行的 Web/PWA 图标资产生�
 
 [English](README.md)
 
+[![在 Ko-fi 上支持 Tinkora](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/tinkora)
+
 ## 能力范围
 
 - 生成浏览器图标、Apple Touch 图标、PWA 图标和 Windows tile 图标。

@@ -6,6 +6,8 @@ PNG, ICO, manifest, and HTML metadata files.
 
 [完整简体中文 README](README.zh-CN.md)
 
+[![Support Tinkora on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/tinkora)
+
 ## What it does
 
 - Generates browser, Apple touch, PWA, and Windows tile icon assets.
