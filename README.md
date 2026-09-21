@@ -6,6 +6,18 @@ PNG, ICO, manifest, and HTML metadata files.
 
 [完整简体中文 README](README.zh-CN.md)
 
+<!-- markdownlint-disable MD033 -->
+<p align="center">
+  <a href="https://ko-fi.com/tinkora" target="_blank" rel="noopener noreferrer">
+    <img
+      src="https://ko-fi.com/img/githubbutton_sm.svg"
+      alt="Support Tinkora on Ko-fi"
+      width="520"
+    >
+  </a>
+</p>
+<!-- markdownlint-enable MD033 -->
+
 ## What it does
 
 - Generates browser, Apple touch, PWA, and Windows tile icon assets.
@@ -85,6 +97,15 @@ cargo test --workspace --locked
 cargo clippy --workspace --all-targets --locked -- -D warnings
 cargo check -p favicon_kit_core --target wasm32-unknown-unknown --locked
 cargo check -p favicon_kit_web --target wasm32-unknown-unknown --locked
+```
+
+Browser smoke tests require Node.js 24:
+
+```bash
+cd crates/favicon_kit_web
+npm ci
+npx playwright install chromium
+npm run test:wasm-smoke:local
 ```
 
 ## Documentation
